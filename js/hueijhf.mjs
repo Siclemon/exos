@@ -11,14 +11,12 @@ async function main() {
     const n = parseInt(await rl.question(`Nombre à chercher\n > `));
     console.log();
 
-    if (tab.includes(n))
-        tab.some((x, i) => {
+    if (!tab.some((x, i) => {
             if (x === n) 
                 console.log(`${n} est présent à la position ${i + 1} du tableau.`);
-            return true;
-        });
-    else
-        console.log(`404 Not found`);
+            if(x > n)
+                return true
+        })) console.log(`404 Not found`);
 
     rl.close();
 }
@@ -33,8 +31,8 @@ function removeDupes(n, i, t) {
 
 function fillArray() {
     const tab = [];
-    for (let i = 0; i < 16922080; i++) {
-        tab.push(randomInt(-1000000, 1000000));
+    for (let i = 0; i < 1692; i++) {
+        tab.push(randomInt(0, 1000));
     }
     return tab;
 }
