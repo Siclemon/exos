@@ -4,7 +4,7 @@ import { stdin as input, stdout as output } from 'process';
 async function main() {
     const rl = createInterface({ input, output });
 
-    const phrase = (await rl.question('Phrase ?\n > ')).trim().toLowerCase().replaceAll(' ','');
+    const phrase = (await rl.question('Phrase ?\n > ')).toLowerCase().replaceAll(' ','').normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
     const palindrome = phrase.split('').every((l, i, arr) => l === arr[arr.length - i - 1])
 

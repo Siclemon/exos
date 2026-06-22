@@ -30,7 +30,6 @@ function main() {
 
     console.log(nosFormations);
 
-
     nosFormations = tri(nosFormations);
 
     console.log(nosFormations);
@@ -40,8 +39,8 @@ function tri(obj) {
     const tab = [];
     const ret = {};
 
-    for (const element in obj) {
-        tab.push([element, obj[element]]);
+    for (const key in obj) {
+        tab.push([key, obj[key]]);
     }
 
     tab.sort((a,b) => b[1] - a[1]);

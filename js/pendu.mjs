@@ -7,7 +7,6 @@ async function main() {
     const mot = await saisieMot(rl);
     console.clear();
 
-    let reste = mot.substring(1, mot.length - 1);
     let lettresTrouvees = 2;
     const trouvee = [true];
     const lettresTestees = [];
@@ -16,8 +15,6 @@ async function main() {
     for (let i = 0; i < mot.length - 2; i++)
         trouvee.push(false);
     trouvee.push(true);
-
-    // console.table(trouvee)
 
     do {
         let motAffiche = '';
@@ -36,7 +33,7 @@ async function main() {
         const lettre = await rl.question('Lettre ?\n > ');
 
         if (lettresTestees.includes(lettre)) {
-            console.log('Lettre déjà testé nullos ╰（‵□′）╯')
+            console.log('Lettre déjà testée nullos ╰（‵□′）╯')
         } else {
             lettresTestees.push(lettre)
             if (mot.includes(lettre)) {
