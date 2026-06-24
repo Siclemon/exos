@@ -4,12 +4,29 @@ async function main() {
 
     console.table(tableau)
 
+    const id = function (obj) {
+        return obj.id;
+    }
+    const full_name = function (obj) {
+        return obj['employee_name'];
+    }
+    const email = function (obj) {
+        const arr = obj['employee_name'].toLowerCase().split(' ');
+        return arr[0][0] + '.' + arr[1] + '@gmail.com';
+    }
+    const income_monthly = function (obj) {
+        return parseFloat((obj['employee_salary'] / 12).toFixed(2));
+    }
+    const year_of_birth = function (obj) {
+        return 2026 - obj['employee_age'];
+    }
+
     const dataProcessing = {
-        id: getId,
-        full_name: getFullName,
-        email: getEmail,
-        income_monthly: getMonthlyIncome,
-        year_of_birth: getBirthYear,
+        id,
+        full_name,
+        email,
+        income_monthly,
+        year_of_birth,
     };
 
     const newTab = [];
@@ -27,23 +44,3 @@ async function main() {
 
 await main();
 
-function getId(obj) {
-    return obj.id;
-}
-
-function getFullName(obj) {
-    return obj['employee_name'];
-}
-
-function getEmail(obj) {
-    const arr = obj['employee_name'].toLowerCase().split(' ');
-    return arr[0][0] + '.' + arr[1] + '@gmail.com';
-}
-
-function getMonthlyIncome(obj) {
-    return parseFloat((obj['employee_salary'] / 12).toFixed(2));
-}
-
-function getBirthYear(obj) {
-    return 2026 - obj['employee_age'];
-}

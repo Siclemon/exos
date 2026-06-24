@@ -31,7 +31,7 @@ async function saisieTexte(rl) {
     do {
         texte = await rl.question('Texte :\n > ');
     } while (texte.length < 120)
-    texte = texte .normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    texte = texte.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     return texte
 }
 
