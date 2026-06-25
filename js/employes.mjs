@@ -18,7 +18,7 @@ async function main() {
         return parseFloat((obj['employee_salary'] / 12).toFixed(2));
     }
     const year_of_birth = function (obj) {
-        return 2026 - obj['employee_age'];
+        return (new Date().getFullYear()) - obj['employee_age'];
     }
 
     const dataProcessing = {
